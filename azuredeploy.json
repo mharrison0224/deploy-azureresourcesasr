@@ -137,6 +137,13 @@
                 "description": "User password for sample VM"
             }
         },
+        "assetLocation": {
+            "type": "string",
+            "metadata": {
+                "description": "The location of resources such as templates and DSC modules that the script is dependent"
+        },
+            "defaultValue": "https://github.com/mharrison0224/deploy-azureresourcesasr/blob/master/"
+        },
         "newStorageAccountName": {
             "type": "string",
             "metadata": {
