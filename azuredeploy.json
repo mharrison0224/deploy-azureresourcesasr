@@ -102,24 +102,24 @@
         },
         "vmSize": {
             "type": "string",
-            "defaultValue": "Standard_A1",
+            "defaultValue": "Standard_D1",
             "allowedValues": [
-                "Standard_A1",
-                "Standard_A2",
-                "Standard_A3",
-                "Standard_A6",
-                "Standard_A7",
-                "Standard_A8",
-                "Standard_A9",
-                "Standard_A10",
-                "Standard_A11",
+                "Standard_D1",
+                "Standard_DS1",
                 "Standard_D2",
+                "Standard_DS2",
                 "Standard_D3",
+                "Standard_DS3",
                 "Standard_D4",
+                "Standard_DS4",
                 "Standard_D11",
+                "Standard_DS11",
                 "Standard_D12",
+                "Standard_DS12",
                 "Standard_D13",
-                "Standard_D14"
+                "Standard_DS13",
+                "Standard_D14",
+                "Standard_DS14"
             ],
             "metadata": {
                 "description": "Size of the Virtual Machine."
@@ -359,6 +359,30 @@
               "caching": "ReadWrite",
               "createOption": "FromImage"
             }
+          },
+          {
+              "name": "InstallADDS",
+              "type": "extensions",
+              "location": "[resourceGroup().location]",
+              "apiVersion": "2015-06-15",
+              "dependsOn": [
+                  "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+              ],
+              "tags": {
+                  "displayName": "InstallADDS"
+              },
+              "properties": {
+                  "publisher": "Microsoft.Compute",
+                  "type": "CustomScriptExtension",
+                  "typeHandlerVersion": "1.4",
+                  "autoUpgradeMinorVersion": true,
+                  "settings": {
+                      "fileUris": [
+                          "[concat(parameters('_artifactsLocation'), '/', variables('InstallADDSScriptFilePath'), parameters('_artifactsLocationSasToken'))]"
+                      ],
+                      "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('InstallADDSScriptFilePath'))]"
+                  }
+              }
           },
           "networkProfile": {
             "networkInterfaces": [
