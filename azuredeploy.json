@@ -337,21 +337,33 @@
             "adminPassword": "[parameters('adminPassword')]"
           },
           "storageProfile": {
-            "imageReference": {
-              "publisher": "[variables('imagePublisher')]",
-              "offer": "[variables('imageOffer')]",
-              "sku": "[variables('imageSKU')]",
-              "version": "latest"
-            },
-            "osDisk": {
-              "name": "osdisk1",
-              "vhd": {
-                "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
-              },
-              "caching": "ReadWrite",
-              "createOption": "FromImage"
-            }
+          "imageReference": {
+            "publisher": "[parameters('imagePublisher')]",
+            "offer": "[parameters('imageOffer')]",
+            "sku": "[parameters('imageSKU')]",
+            "version": "latest"
           },
+          "osDisk": {
+            "name": "osdisk",
+            "vhd": {
+              "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/vhds0/','osdisk.vhd')]"
+            },
+            "caching": "ReadWrite",
+            "createOption": "FromImage"
+          },
+          "dataDisks": [
+            {
+              "vhd": {
+                "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/vhds0/', variables('ADDSDataDisk'),'-1.vhd')]"
+              },
+              "name": "[concat(parameters('vmName'),'-data-disk1')]",
+              "caching": "None",
+              "diskSizeGB": 20,
+              "lun": 0,
+              "createOption": "empty"
+            }
+          ]
+        },
           "networkProfile": {
             "networkInterfaces": [
               {
