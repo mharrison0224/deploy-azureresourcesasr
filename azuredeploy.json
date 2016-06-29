@@ -95,14 +95,14 @@
         },
         "vmName": {
             "type": "string",
-            "defaultValue": "node-1",
+            "defaultValue": "AZDC01",
             "metadata": {
                 "description": "Name of the sample VM to create"
             }
         },
         "vmSize": {
             "type": "string",
-            "defaultValue": "Standard_A1",
+            "defaultValue": "Standard_D2",
             "allowedValues": [
                 "Standard_A1",
                 "Standard_A2",
