@@ -15,7 +15,7 @@
         },
         "localGatewayName": {
             "type": "string",
-            "defaultValue": "localGateway",
+            "defaultValue": "LNGW01",
             "metadata": {
                 "description": "Arbitrary name for gateway resource representing your local/on-prem gateway"
             }
@@ -41,48 +41,49 @@
         },
         "azureVNetAddressPrefix": {
             "type": "string",
-            "defaultValue": "10.3.0.0/16",
+            "defaultValue": "172.10.0.0/16",
             "metadata": {
                 "description": "CIDR block representing the address space of the Azure VNet"
             }
         },
         "subnetName": {
             "type": "string",
-            "defaultValue": "Subnet1",
+            "defaultValue": "DefaultSubnet",
             "metadata": {
                 "description": "Arbitrary name for the Azure Subnet"
             }
         },
         "subnetPrefix": {
             "type": "string",
+            "defaultvalue": "172.10.10.0/24"
             "metadata": {
                 "description": "CIDR block for VM subnet, subset of azureVNetAddressPrefix address space"
             }
         },
         "gatewaySubnetPrefix": {
             "type": "string",
-            "defaultValue": "10.3.200.0/29",
+            "defaultValue": "172.10.255.0/28",
             "metadata": {
                 "description": "CIDR block for gateway subnet, subset of azureVNetAddressPrefix address space"
             }
         },
         "gatewayPublicIPName": {
             "type": "string",
-            "defaultValue": "azureGatewayIP",
+            "defaultValue": "AZGW01-PublicIP",
             "metadata": {
                 "description": "Arbitrary name for public IP resource used for the new azure gateway"
             }
         },
         "gatewayName": {
             "type": "string",
-            "defaultValue": "azureGateway",
+            "defaultValue": "AZGW01",
             "metadata": {
                 "description": "Arbitrary name for the new gateway"
             }
         },
         "connectionName": {
             "type": "string",
-            "defaultValue": "Azure2Other",
+            "defaultValue": "S2S-VPN",
             "metadata": {
                 "description": "Arbitrary name for the new connection between Azure VNet and other network"
             }
@@ -95,7 +96,7 @@
         },
         "vmName": {
             "type": "string",
-            "defaultValue": "node-1",
+            "defaultValue": "AZDC01",
             "metadata": {
                 "description": "Name of the sample VM to create"
             }
@@ -164,11 +165,11 @@
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
         "gatewaySubnetRef": "[concat(variables('vnetID'),'/subnets/','GatewaySubnet')]",
         "subnetRef": "[concat(variables('vnetID'),'/subnets/',parameters('subnetName'))]",
-        "nicName": "[concat(parameters('vmName'), '-nic')]",
+        "nicName": "[concat(parameters('vmName'), '-Nic')]",
         "vmStorageAccountContainerName": "vhds",
         "OSDiskName": "osDisk",
         "ADDSDiskName": "ADDSDisk",
-        "vmPublicIPName": "[concat(parameters('vmName'), '-publicIP')]",
+        "vmPublicIPName": "[concat(parameters('vmName'), '-PublicIP')]",
         "api-version": "2015-06-15",
         "storage-api-version": "2015-05-01-preview"
     },
