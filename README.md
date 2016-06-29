@@ -1,4 +1,4 @@
-# deploy-azureresourcesasr
+# Deploy-AzureResourcesASR
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmharrison0224%2Fdeploy-azureresourcesasr%2Fmaster%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
@@ -10,4 +10,4 @@ Please note that you must have a Public IP for your other network's VPN gateway 
 
 Although only the parameters in [azuredeploy.parameters.json](./azuredeploy.parameters.json) are necessary, you can override the defaults of any of the template parameters.
 
-<a><img src="http://ww1.prweb.com/prfiles/2010/03/25/3124544/Concurency.jpg"/> </a>
+<a href="http://www.concurrency.com/"><img src="http://ww1.prweb.com/prfiles/2010/03/25/3124544/Concurency.jpg"/></a>
