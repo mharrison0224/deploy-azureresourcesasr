@@ -95,14 +95,14 @@
         },
         "vmName": {
             "type": "string",
-            "defaultValue": "AZDC01",
+            "defaultValue": "node-1",
             "metadata": {
                 "description": "Name of the sample VM to create"
             }
         },
         "vmSize": {
             "type": "string",
-            "defaultValue": "Standard_D2",
+            "defaultValue": "Standard_A1",
             "allowedValues": [
                 "Standard_A1",
                 "Standard_A2",
@@ -156,14 +156,6 @@
             },
             "defaultValue": "Standard_LRS"
         }
-        },
-        "assetLocation": {
-            "type": "string",
-            "metadata": {
-                "description": "The location of resources such as templates and DSC modules that the script is dependent"
-            },
-                "defaultValue": "https://raw.githubusercontent.com/mharrison0224/deploy-azureresourcesasr/master/"
-        }
     },
     "variables": {
         "imagePublisher": "MicrosoftWindowsServer",
@@ -178,8 +170,6 @@
         "vmPublicIPName": "[concat(parameters('vmName'), '-publicIP')]",
         "api-version": "2015-06-15",
         "storage-api-version": "2015-05-01-preview"
-        "ADDSModulesURL": "[concat(parameters('assetLocation'),'InstallADDS.ps1')]",
-        "ADDSConfigurationFunction": "InstallADDS.ps1"
     },
     "resources": [
       {
