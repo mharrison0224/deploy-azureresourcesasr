@@ -354,10 +354,10 @@
           },
           "ADDSDisk": [
             {
+              "name": "addsdisk",
               "vhd": {
-                "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/vhds0/', variables('ADDSDiskName'),'-1.vhd')]"
+                "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/vhds0/','addsdisk.vhd')]"
               },
-              "name": "[concat(parameters('vmName'),'-data-disk1')]",
               "caching": "None",
               "diskSizeGB": 20,
               "lun": 0,
