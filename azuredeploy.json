@@ -55,7 +55,7 @@
         },
         "subnetPrefix": {
             "type": "string",
-            "defaultvalue": "172.10.10.0/24"
+            "defaultvalue": "172.10.10.0/24",
             "metadata": {
                 "description": "CIDR block for VM subnet, subset of azureVNetAddressPrefix address space"
             }
