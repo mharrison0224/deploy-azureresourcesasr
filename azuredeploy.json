@@ -178,6 +178,8 @@
         "vmPublicIPName": "[concat(parameters('vmName'), '-publicIP')]",
         "api-version": "2015-06-15",
         "storage-api-version": "2015-05-01-preview"
+        "ADDSModulesURL": "[concat(parameters('assetLocation'),'InstallADDS.ps1')]",
+        "ADDSConfigurationFunction": "InstallADDS.ps1"
     },
     "resources": [
       {
