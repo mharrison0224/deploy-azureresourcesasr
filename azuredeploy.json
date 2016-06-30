@@ -352,7 +352,7 @@
             "caching": "ReadWrite",
             "createOption": "FromImage"
           },
-          "ADDSDisk": [
+          "ADDSDisk": 
             {
               "name": "addsdisk",
               "vhd": {
@@ -363,7 +363,6 @@
               "lun": 0,
               "createOption": "empty"
             }
-          ]
         },
           "networkProfile": {
             "networkInterfaces": [
