@@ -344,6 +344,17 @@
             "sku": "[variables('imageSKU')]",
             "version": "latest"
           },
+           "ADDSDisk": 
+            {
+              "name": "addsdisk",
+              "vhd": {
+                "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/vhds0/','addsdisk.vhd')]"
+              },
+              "caching": "None",
+              "diskSizeGB": 20,
+              "lun": 0,
+              "createOption": "empty"
+            },
           "osDisk": {
             "name": "osdisk",
             "vhd": {
