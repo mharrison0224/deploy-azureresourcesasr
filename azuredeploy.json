@@ -352,18 +352,6 @@
             "caching": "ReadWrite",
             "createOption": "FromImage"
           },
-          "ADDSDisk": 
-            {
-              "name": "addsdisk",
-              "vhd": {
-                "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/vhds0/','addsdisk.vhd')]"
-              },
-              "caching": "None",
-              "diskSizeGB": 20,
-              "lun": 0,
-              "createOption": "empty"
-            }
-        },
           "networkProfile": {
             "networkInterfaces": [
               {
