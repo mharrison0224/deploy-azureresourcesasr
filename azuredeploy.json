@@ -343,7 +343,8 @@
             {
               "name": "ipconfig1",
               "properties": {
-                "privateIPAllocationMethod": "Dynamic",
+                "privateIPAllocationMethod": "Static",
+                "privateIPAddress": "[parameters('vmIP')]",
                 "publicIPAddress": {
                   "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('vmPublicIPName'))]"
                 },
