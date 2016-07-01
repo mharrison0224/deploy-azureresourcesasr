@@ -187,7 +187,8 @@
         "ScriptFileName": "InstallADDS.ps1",
         "ScriptFolder": ".",
         "api-version": "2015-06-15",
-        "storage-api-version": "2015-05-01-preview"
+        "storage-api-version": "2015-05-01-preview",
+        "apiVersion": "2015-06-15"
     },
     "resources": [
       {
