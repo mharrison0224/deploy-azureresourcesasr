@@ -367,7 +367,7 @@
               "diskSizeGB": 50,
               "lun": 0,
               "vhd": {
-                "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vmStorageAccountContainerName'),'/',variables('vmName'),'dataDisk1.vhd')]"
+                "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vmStorageAccountContainerName'),'/',parameters('vmName'),'dataDisk1.vhd')]"
               },
               "createOption": "Empty"
             },
@@ -376,7 +376,7 @@
               "diskSizeGB": 50,
               "lun": 1,
               "vhd": {
-                "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vmStorageAccountContainerName'),'/',variables('vmName'),'dataDisk2.vhd')]"
+                "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vmStorageAccountContainerName'),'/',parameters('vmName'),'dataDisk2.vhd')]"
               },
               "createOption": "Empty"
             },
@@ -385,7 +385,7 @@
               "diskSizeGB": 50,
               "lun": 2,
               "vhd": {
-                "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vmStorageAccountContainerName'),'/',variables('vmName'),'dataDisk3.vhd')]"
+                "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vmStorageAccountContainerName'),'/',parameters('vmName'),'dataDisk3.vhd')]"
               },
               "createOption": "Empty"
             },
@@ -394,7 +394,7 @@
               "diskSizeGB": 50,
               "lun": 3,
               "vhd": {
-                "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vmStorageAccountContainerName'),'/',variables('vmName'),'dataDisk4.vhd')]"
+                "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vmStorageAccountContainerName'),'/',parameters('vmName'),'dataDisk4.vhd')]"
               },
               "createOption": "Empty"
             }
