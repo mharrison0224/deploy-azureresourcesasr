@@ -252,7 +252,7 @@
         },
         "dhcpOptions": {
                     "dnsServers": [
-                        "[parameters('vmIP')],
+                        "[parameters('vmIP')]",
                         "[parameters('onPremDNS')]"
                     ]
         },
