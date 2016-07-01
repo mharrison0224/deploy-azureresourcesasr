@@ -32,6 +32,12 @@
                 "description": "CIDR block representing the address space of your local/on-prem network's Subnet"
             }
         },
+        "onPremDNS": {
+            "type": "string",
+            "metadata": {
+                "description": "IP Address of On-premises DNS Server to be used as Secondary DNS in Azure VNet"
+            }
+        },
         "virtualNetworkName": {
             "type": "string",
             "defaultValue": "azureVnet",
@@ -99,6 +105,13 @@
             "defaultValue": "AZDC01",
             "metadata": {
                 "description": "Name of the sample VM to create"
+            }
+        },
+        "vmIP": {
+            "type": "string",
+            "defaultValue": "172.10.10.10",
+            "metadata": {
+                "description": "Static Private IP Address of Virtual Machine"
             }
         },
         "vmSize": {
@@ -238,7 +251,10 @@
             ]
         },
         "dhcpOptions": {
-          "dnsServers": "[parameters('DNSServerAddress')]"
+                    "dnsServers": [
+                        "[parameters('vmIP')],
+                        "[parameters('onPremDNS')]"
+                    ]
         },
           "subnets": [
             {
