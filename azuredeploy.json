@@ -13,6 +13,12 @@
                 "PolicyBased"
             ]
         },
+        "companyPrefix": {
+            "type": "string",
+            "metadata": {
+                "description": "Prefix for all resources to be named with (example: XYZ)"
+            }
+        },
         "localGatewayName": {
             "type": "string",
             "defaultValue": "LNGW01",
@@ -35,7 +41,7 @@
         "onPremDNS": {
             "type": "string",
             "metadata": {
-                "description": "IP Address of On-premises DNS Server to be used as Secondary DNS in Azure VNet"
+                "description": "IP Address of On-premises DNS Server to be used as Secondary DNS in Azure VNet (example: 192.168.10.10)"
             }
         },
         "virtualNetworkName": {
@@ -196,7 +202,7 @@
         "vmStorageAccountContainerName": "vhds",
         "OSDiskName": "osDisk",
         "ADDSDiskName": "ADDSDisk",
-        "vmPublicIPName": "[concat(parameters('vmName'), '-PublicIP')]",
+        "vmPublicIPName": "[concat(parameters('vmName'), parameters('companyPrefix'))]",
         "ScriptFileName": "InstallADDS.ps1",
         "ScriptFolder": ".",
         "api-version": "2015-06-15",
