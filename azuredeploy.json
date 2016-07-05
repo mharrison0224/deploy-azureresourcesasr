@@ -198,7 +198,7 @@
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
         "gatewaySubnetRef": "[concat(variables('vnetID'),'/subnets/','GatewaySubnet')]",
         "subnetRef": "[concat(variables('vnetID'),'/subnets/',parameters('subnetName'))]",
-        "nicName": "[concat(parameters('companyPrefix'), '-', parameters('vmName'), '-Nic')]",
+        "nicName": "[concat(parameters('companyPrefix'), '-', parameters('vmName'), '-NIC')]",
         "vmStorageAccountContainerName": "vhds",
         "OSDiskName": "osDisk",
         "ADDSDiskName": "ADDSDisk",
