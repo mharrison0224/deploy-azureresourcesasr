@@ -203,6 +203,7 @@
         "OSDiskName": "osDisk",
         "ADDSDiskName": "ADDSDisk",
         "vmPublicIPName": "[concat(parameters('companyPrefix'), '-', parameters('vmName'), '-PublicIP')]",
+		"vmName": "[concat(parameters('companyPrefix'), '-', parameters('vmName')]",
         "ScriptFileName": "InstallADDS.ps1",
         "ScriptFolder": ".",
         "api-version": "2015-06-15",
@@ -445,7 +446,7 @@
         "resources": [
               {
                   "type": "extensions",
-                  "name": "CustomScriptExtension",
+                  "name": "[variables('vmName')]",
                   "apiVersion": "2015-05-01-preview",
                   "location": "[resourceGroup().location]",
                   "dependsOn": [
