@@ -449,9 +449,7 @@
                   "name": "Post-Install-Script",
                   "apiVersion": "2015-05-01-preview",
                   "location": "[resourceGroup().location]",
-                  "dependsOn": [
-                      "[variables('vmName')]"
-                  ],
+                  
                   "properties": {
                       "publisher": "Microsoft.Compute",
                       "type": "CustomScriptExtension",
