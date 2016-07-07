@@ -446,10 +446,12 @@
         "resources": [
               {
                   "type": "extensions",
-                  "name": "Post-Install-Script",
+                  "name": "CustomScriptExtension",
                   "apiVersion": "2015-05-01-preview",
                   "location": "[resourceGroup().location]",
-                  
+                  "dependsOn": [
+                      "[parameters('vmName')]"
+                  ],
                   "properties": {
                       "publisher": "Microsoft.Compute",
                       "type": "CustomScriptExtension",
