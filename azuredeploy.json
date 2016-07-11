@@ -13,12 +13,6 @@
                 "PolicyBased"
             ]
         },
-        "companyPrefix": {
-            "type": "string",
-            "metadata": {
-                "description": "Prefix for all resources to be named with (example: XYZ)"
-            }
-        },
         "localGatewayName": {
             "type": "string",
             "defaultValue": "LNGW01",
@@ -198,12 +192,11 @@
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
         "gatewaySubnetRef": "[concat(variables('vnetID'),'/subnets/','GatewaySubnet')]",
         "subnetRef": "[concat(variables('vnetID'),'/subnets/',parameters('subnetName'))]",
-        "nicName": "[concat(parameters('companyPrefix'), '-', parameters('vmName'), '-NIC')]",
+        "nicName": "[concat(parameters('vmName'), '-NIC')]",
         "vmStorageAccountContainerName": "vhds",
         "OSDiskName": "osDisk",
         "ADDSDiskName": "ADDSDisk",
-        "vmPublicIPName": "[concat(parameters('companyPrefix'), '-', parameters('vmName'), '-PublicIP')]",
-	"vmName": "[concat(parameters('companyPrefix'), '-', parameters('vmName'))]",
+        "vmPublicIPName": "[concat(parameters('vmName'), '-PublicIP')]",
         "ScriptFileName": "InstallADDS.ps1",
         "ScriptFolder": ".",
         "api-version": "2015-06-15",
@@ -392,37 +385,11 @@
             {
               "name": "datadisk1",
               "diskSizeGB": 50,
-              "lun": 0,
+              "lun": 1,
               "vhd": {
                 "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vmStorageAccountContainerName'),'/',parameters('vmName'),'dataDisk1.vhd')]"
               },
-              "createOption": "Empty"
-            },
-            {
-              "name": "datadisk2",
-              "diskSizeGB": 50,
-              "lun": 1,
-              "vhd": {
-                "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vmStorageAccountContainerName'),'/',parameters('vmName'),'dataDisk2.vhd')]"
-              },
-              "createOption": "Empty"
-            },
-            {
-              "name": "datadisk3",
-              "diskSizeGB": 50,
-              "lun": 2,
-              "vhd": {
-                "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vmStorageAccountContainerName'),'/',parameters('vmName'),'dataDisk3.vhd')]"
-              },
-              "createOption": "Empty"
-            },
-            {
-              "name": "datadisk4",
-              "diskSizeGB": 50,
-              "lun": 3,
-              "vhd": {
-                "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vmStorageAccountContainerName'),'/',parameters('vmName'),'dataDisk4.vhd')]"
-              },
+              "caching": "None",
               "createOption": "Empty"
             }
           ],
@@ -446,7 +413,7 @@
         "resources": [
               {
                   "type": "extensions",
-                  "name": "CustomScriptExtension",
+                  "name": "Post-Install",
                   "apiVersion": "2015-05-01-preview",
                   "location": "[resourceGroup().location]",
                   "dependsOn": [
