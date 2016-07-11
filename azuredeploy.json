@@ -203,7 +203,7 @@
         "OSDiskName": "osDisk",
         "ADDSDiskName": "ADDSDisk",
         "vmPublicIPName": "[concat(parameters('companyPrefix'), '-', parameters('vmName'), '-PublicIP')]",
-		"vmName": "[concat(parameters('companyPrefix'), '-', parameters('vmName')]",
+	"vmName": "[concat(parameters('companyPrefix'), '-', parameters('vmName'))]",
         "ScriptFileName": "InstallADDS.ps1",
         "ScriptFolder": ".",
         "api-version": "2015-06-15",
