@@ -413,11 +413,11 @@
         "resources": [
               {
                   "type": "extensions",
-                  "name": "Post-Install",
+                  "name": "CustomScriptExtension",
                   "apiVersion": "2015-05-01-preview",
                   "location": "[resourceGroup().location]",
                   "dependsOn": [
-                      "[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"
+                      "[parameters('vmName')]"
                   ],
                   "properties": {
                       "publisher": "Microsoft.Compute",
